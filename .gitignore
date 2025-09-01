@@ -32,3 +32,8 @@
 *.app
 
 tags
+few_funcs
+iter
+array
+.cache_exists
+.clangd
