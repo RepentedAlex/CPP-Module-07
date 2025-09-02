@@ -84,5 +84,5 @@ int main()
     PRINT_TEST("max(p, q):");
     std::cout << "max(p, q) = " << ::max(p, q) << std::endl;
 
-    return 0;
+    return (0);
 }
