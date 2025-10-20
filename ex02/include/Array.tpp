@@ -20,13 +20,11 @@ Array<T>&	Array<T>::operator=(const Array<T>& original) {
 	if (this != &original) {
 		if (this->array) {
 			delete[] this->array_;
-			this->size_ = original.size_;
-			this->array_ = new T[this->size_];
-			for (size_t i = 0 ; i < this->size_ ; i++) {
-				this->array_[i] = original.array_[i];
-			}
-		} else {
-			this->size_ = original.size_;
+		}
+		this->size_ = original.size_;
+		this->array_ = new T[this->size_];
+		for (size_t i = 0 ; i < this->size_ ; i++) {
+			this->array_[i] = original.array_[i];
 		}
 	}
 	return (*this);
@@ -55,5 +53,7 @@ size_t	Array<T>::size() const {
 
 template <typename T>
 Array<T>::~Array() {
-	delete[] this->array_;
+	if (this->array_ != NULL) {
+		delete[] this->array_;
+	}
 }
