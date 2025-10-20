@@ -26,16 +26,16 @@ void toUpperCase(std::string& str) {
     }
 }
 
-// Non-template test functions for testClass
 class testClass {
 public:
     int value;
     testClass(int v = 0) : value(v) {}
-    friend std::ostream& operator<<(std::ostream& os, const testClass& obj) {
-        os << "testClass(" << obj.value << ")";
-        return os;
-    }
 };
+
+std::ostream& operator<<(std::ostream& os, const testClass& obj) {
+	os << "testClass(" << obj.value << ")";
+	return os;
+}
 
 void printtestClass(const testClass& obj) {
     std::cout << obj << " ";
@@ -46,10 +46,8 @@ void incrementtestClass(testClass& obj) {
 }
 
 int main() {
-    // Section: Basic Tests
     PRINT_SECTION("Basic Tests");
 
-    // Subsection: int array
     PRINT_SUBSECTION("int array");
     {
         int intArray[] = {1, 2, 3, 4, 5};
@@ -70,7 +68,6 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Subsection: std::string array
     PRINT_SUBSECTION("std::string array");
     {
         std::string strArray[] = {"hello", "world", "!"};
@@ -86,10 +83,8 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Section: Edge Cases
     PRINT_SECTION("Edge Cases");
 
-    // Subsection: Empty array
     PRINT_SUBSECTION("Empty array");
     {
         int emptyArray[] = {};
@@ -100,7 +95,6 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Subsection: Single element array
     PRINT_SUBSECTION("Single element array");
     {
         int singleArray[] = {42};
@@ -116,10 +110,8 @@ int main() {
         std::cout << std::endl;
     }
 
-    // Section: Custom Class
     PRINT_SECTION("Custom Class");
 
-    // Subsection: User-defined type
     PRINT_SUBSECTION("User-defined type");
     {
         testClass myArray[] = {testClass(1), testClass(2), testClass(3)};
